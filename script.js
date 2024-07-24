@@ -47,15 +47,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = table.querySelector(`tbody tr:nth-child(${personId})`);
         row.classList.remove('struck-through');
     }
-    
+
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
             const personId = this.getAttribute('data-person');
-            
-            // Set the selected radio button in local storage
-            localStorage.setItem(`paidPerson${personId}`, 'checked');
-            strikeThroughRow(personId);
-            
+            const isChecked = this.checked;
+
+            if (isChecked) {
+                // Set the selected radio button in local storage and strike through the row
+                localStorage.setItem(`paidPerson${personId}`, 'checked');
+                strikeThroughRow(personId);
+            } else {
+                // If unchecked, remove the saved state and strike-through
+                localStorage.removeItem(`paidPerson${personId}`);
+                removeStrikeThroughRow(personId);
+            }
+
             // Ensure all other persons' states are preserved
             radios.forEach(r => {
                 if (r !== this) {
