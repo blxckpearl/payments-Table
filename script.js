@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.getElementById('paymentsTable');
     const radios = table.querySelectorAll('input[type="radio"]');
 
-    // Load saved states
+    // Initialize radio button states based on local storage
     radios.forEach(radio => {
         const personId = radio.getAttribute('data-person');
         const savedState = localStorage.getItem(`paidPerson${personId}`);
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let received = 0;
             
             amounts.forEach(amountCell => {
-                const value = parseInt(amountCell.textContent.replace('R', ''));
+                const value = parseInt(amountCell.textContent.replace('R', ''), 10);
                 if (value === 1500) {
                     received += value;
                     // Ensure R0 payment in the month of receiving
