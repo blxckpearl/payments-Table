@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Payments Table</h1>
+    <table id="paymentsTable">
+        <thead>
+            <tr>
+                <th>Person</th>
+                <th>July</th>
+                <th>August</th>
+                <th>September</th>
+                <th>October</th>
+                <th>Total Paid</th>
+                <th>Total Received</th>
+                <th>Paid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Person 1</td>
+                <td class="amount" data-month="July">R500</td>
+                <td class="amount" data-month="August">R500</td>
+                <td class="amount" data-month="September">R500</td>
+                <td class="amount" data-month="October">R1500</td>
+                <td class="total-paid">R0</td>
+                <td class="total-received">R0</td>
+                <td><input type="radio" name="paidPerson" data-person="1"></td>
+            </tr>
+            <tr>
+                <td>Person 2</td>
+                <td class="amount" data-month="July">R500</td>
+                <td class="amount" data-month="August">R500</td>
+                <td class="amount" data-month="September">R1500</td>
+                <td class="amount" data-month="October">R500</td>
+                <td class="total-paid">R0</td>
+                <td class="total-received">R0</td>
+                <td><input type="radio" name="paidPerson" data-person="2"></td>
+            </tr>
+            <tr>
+                <td>Person 3</td>
+                <td class="amount" data-month="July">R500</td>
+                <td class="amount" data-month="August">R1500</td>
+                <td class="amount" data-month="September">R500</td>
+                <td class="amount" data-month="October">R500</td>
+                <td class="total-paid">R0</td>
+                <td class="total-received">R0</td>
+                <td><input type="radio" name="paidPerson" data-person="3"></td>
+            </tr>
+            <tr>
+                <td>Person 4</td>
+                <td class="amount" data-month="July">R1500</td>
+                <td class="amount" data-month="August">R500</td>
+                <td class="amount" data-month="September">R500</td>
+                <td class="amount" data-month="October">R500</td>
+                <td class="total-paid">R0</td>
+                <td class="total-received">R0</td>
+                <td><input type="radio" name="paidPerson" data-person="4"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
