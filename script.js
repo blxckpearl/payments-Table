@@ -62,18 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.removeItem(`paidPerson${personId}`);
                 removeStrikeThroughRow(personId);
             }
-
-            // Ensure all other persons' states are preserved
-            radios.forEach(r => {
-                if (r !== this) {
-                    const otherPersonId = r.getAttribute('data-person');
-                    if (localStorage.getItem(`paidPerson${otherPersonId}`) === 'checked') {
-                        strikeThroughRow(otherPersonId);
-                    } else {
-                        removeStrikeThroughRow(otherPersonId);
-                    }
-                }
-            });
         });
 
         radio.addEventListener('contextmenu', function(event) {
@@ -85,6 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTotals(); // Update totals after change
         });
     });
-    
+
     updateTotals();
 });
