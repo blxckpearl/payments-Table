@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const table = document.getElementById('paymentsTable');
     const radios = table.querySelectorAll('input[type="radio"]');
+    const restoreButton = document.getElementById('restoreButton');
 
     // Initialize radio button states based on local storage
     radios.forEach(radio => {
@@ -74,6 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
             removeStrikeThroughRow(personId); // Remove strike-through effect
             updateTotals(); // Update totals after change
         });
+    });
+
+    restoreButton.addEventListener('click', function() {
+        // Clear all radio button states in local storage
+        radios.forEach(radio => {
+            const personId = radio.getAttribute('data-person');
+            localStorage.removeItem(`paidPerson${personId}`);
+            radio.checked = false;
+            removeStrikeThroughRow(personId);
+        });
+        updateTotals();
     });
 
     updateTotals();
