@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (savedState === 'checked') {
             radio.checked = true;
             strikeThroughRow(personId);
+        } else {
+            radio.checked = false;
+            removeStrikeThroughRow(personId);
         }
     });
 
@@ -53,12 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const personId = this.getAttribute('data-person');
             const isChecked = this.checked;
 
+            // Manage local storage and row strike-through based on the checked state
             if (isChecked) {
-                // Set the selected radio button in local storage and strike through the row
                 localStorage.setItem(`paidPerson${personId}`, 'checked');
                 strikeThroughRow(personId);
             } else {
-                // If unchecked, remove the saved state and strike-through
                 localStorage.removeItem(`paidPerson${personId}`);
                 removeStrikeThroughRow(personId);
             }
